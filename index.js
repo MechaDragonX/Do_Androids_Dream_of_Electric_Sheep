@@ -5,11 +5,15 @@ const port = 3000;
 const app = express();
 app.use(bodyParser.json());
 
-let stored = {};
+let stored = {
+    name: "Electric Sheep",
+    count: "999"
+};
+const thisthing = false;
 
 app.get('/', (req, res) => {
     console.log('GET request received!')
-    res.json(stored)
+    res.send(`There are ${stored.count} ${stored.name}!`)
 });
 
 app.put('/', (req,res) => {
